@@ -27,7 +27,7 @@ git clone https://github.com/jc-cr/ArduinoCLIControl.git
 make 
 make upload
 ```
-7. Connect and commincate. With minicom you caa do:
+7. Connect and communicate. With minicom you can do:
     - Make sure to update with your device symlink name or USB port (found with `lsusb`)
 ```
 minicom -D /dev/yourDevice -b 9600
