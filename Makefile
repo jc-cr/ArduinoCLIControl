@@ -22,6 +22,7 @@ AVRDUDE = avrdude
 CFLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -Os -w -Wl,--gc-sections -std=gnu11 -I$(LIBDIR)
 CXXFLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -Os -w -Wl,--gc-sections -std=gnu++11 -I$(LIBDIR)
 AVRDUDE_FLAGS = -V -p $(MCU) -c $(AVRDUDE_PROGRAMMER) -P $(PORT) -b $(UPLOAD_SPEED)
+CFLAGS += -DF_CPU=16000000UL
 
 # Files
 SRC = $(wildcard *.cc) $(wildcard *.cpp) $(wildcard $(LIBDIR)/*.cc) $(wildcard $(LIBDIR)/*.cpp)

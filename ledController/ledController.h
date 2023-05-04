@@ -6,12 +6,10 @@ class LedController
 {
   public:
 
-    LedController(const int& baudRate, char onChar, char offChar) : _onChar(onChar), _offChar(offChar)
-    {
-      _USART_init(baudRate);
-    };
+    LedController(unsigned int baudRate, char onChar, char offChar)
+      : _baud(baudRate), _onChar(onChar), _offChar(offChar){};
 
-    void setGreetingMsg(const char*);
+    void setGreetingMsg(const char* msg);
 
     void run(void);
 
@@ -21,7 +19,9 @@ class LedController
 
     const char _onChar;
     const char _offChar;
+    const char _exitChar = 'x';
     const char* _greetingMsg;
+    const unsigned int _baud;
 
     // Function to initialize the USART (Universal Synchronous Asynchronous Receiver Transmitter) communication
     void _USART_init(unsigned int baud);
@@ -37,6 +37,12 @@ class LedController
 
     // Calculate USART baud register value from Baud rate
     unsigned int _calcBaud(unsigned int baud);
+
+    // Send the toggle keys with every msg
+    void _txToggleInstructionMsg(void);
+
+    // Terminate connectiona and then reset after 3 sec
+    void _resetConnection(void);
 };
 
 #endif
