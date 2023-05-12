@@ -7,8 +7,7 @@ For this example I made a library for communicating with arduino nano, specifica
 # How To
 1. Install required packages:
 ```
-sudo apt install minicom\
-sudo apt-get install gcc-avr avr-libc avrdude
+sudo apt install minicom gcc-avr avr-libc avrdude
 ```
 2. (Optional) Create udev rules so you can always find your device when connected.
     - This a good guide for that [Udev rules](https://steve.fi/hardware/arduino-basics/) 
